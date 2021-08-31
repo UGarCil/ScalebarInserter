@@ -44,3 +44,4 @@ for photo in filesPhotos:
     for indx, magn in enumerate(magns):
         if magn in photo:
             add_SB (magnsPath[indx], photo)
+input(">>> The program has finished inserting the scalebars. Press Enter to exit the program")
