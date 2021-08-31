@@ -3,6 +3,8 @@ A script that automatically adds scalebars to images taken with a standard magni
 
 **************How to use it**************
 
+You need to have a python version equal or above 3.0x and the module Pillow installed in your environment.
+
 1. take photographs of a ruler or micrometer at their different magnifications
 2. Create your scalebars using Photoshop or illustrator and save them inside the _SB_ folder. The name of the scalebar is not important, but it's essential that it ends with an underscore followed by the magnification and a capital "X"
 3. Take your photographs, remembering to name them with the same protocol as you named your scalebars (e.g. photoname_10X.jpg). The program accepts .png, .tiff and .jpg
