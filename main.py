@@ -13,15 +13,14 @@ pathImages = jn(path, "Photos")
 pathSB = jn(path, "_SB_")
 formats = ['.jpg','.JPG','.PNG','.png','.tiff','.TIFF']
 magnsPath = [jn(pathSB, x) for x in os.listdir(pathSB) if x.endswith('.png')]
-magns = [x.replace('.png','').split('_')[-1] for x in magnsPath]
-
+# Create the magnification tag from the scalebar images' names making sure the letters are lowecase
+magns = [x.lower().replace('.png','').split('_')[-1] for x in magnsPath]
 
 
 # Extract a list with the different photos that will require scalebar
 filesPhotos = []
 
 for root, folders, files in os.walk(pathImages):
-    # for file in files: print(file)
     [filesPhotos.append(jn(root,x)) for x in files]
 
 
@@ -40,8 +39,10 @@ def add_SB (sbPath, photoPath):
         photo.save(photoPath)
     except:
         print("The image {} couldn't be edited. Please verify the file is not open by other application, or it's a video file".format(photoPath))
+
 for photo in filesPhotos:
     for indx, magn in enumerate(magns):
-        if magn in photo:
+        if magn in photo.lower():
+            print("found an image with name {}".format(photo))
             add_SB (magnsPath[indx], photo)
 input(">>> The program has finished inserting the scalebars. Press Enter to exit the program")
